@@ -1,8 +1,15 @@
 function AllData(){
     const ctx = React.useContext(UserContext); 
     return (
-        <h1> Create Account <br/>
-            {JSON.stringify(ctx)}
-        </h1>
-    );
+      <Card
+        bgcolor="primary"
+        txtcolor="white"
+        header="All Data"
+        text="Data collected from your account."
+        body={(<>
+               <h3>{JSON.stringify(ctx)}</h3> <br/>
+              </>
+        )}
+          />
+      )
 }
