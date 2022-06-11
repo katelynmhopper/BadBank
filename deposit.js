@@ -22,12 +22,12 @@ function Deposit(){
 
     const makeDeposit = amount => {
       if (!validate(amount)) return;
-      let newBalance =(Number(balance) + Number(amount));
+      setBalance(Number(balance) + Number(amount));
       setShow(false);
       setStatus('');
-      console.log('>>>', (newBalance))
       ctx.users[0].balance =+ Number(amount)
     }
+    console.log({balance});
   
   function clearForm(){
     setDeposit('');
