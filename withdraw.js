@@ -13,23 +13,25 @@ function Withdraw(){
         if (!amount) {
           setStatus('Error: please enter a value');
           return false;
-        } if (amount >= 0) {
-          setStatus('Error: Withdraw cannot be zero or a positive number');
+        } 
+        if (amount > balance) {
+          setStatus('Error: Overdraft');
           return false;
-        } if (!Number(amount)) {
+        }
+        if (!Number(amount)) {
           setStatus('Error: please enter a value');
         }
         return true;
     }
-    const makeWithdraw = amount => {
-      if (!validate(amount)) return;
-      setBalance(Number(balance) + Number(amount));
-      setShow(false);
-      setStatus('');
-      ctx.users[0].balance =- Number(amount)
+
+  const makeWithdraw = amount => {
+    if (!validate(amount)) return;
+    setBalance(Number(balance) - Number(amount));
+    setShow(false);
+    setStatus('');
+    ctx.users[0].balance -= Number(amount)
     }
-    console.log('>>>>>', {balance});
-  
+
   function clearForm(){
     setWithdraw('');
     setShow(true);
@@ -52,10 +54,10 @@ function Withdraw(){
         status={status}
         body={show ? (  
                 <>
-                <h3>Balance: ${balance}</h3> <br/>
+                 <div className="callout">Balance: ${balance.toFixed(2)}</div> <br/>
                 How much do you wand to withdraw?<br/>
                 <input type="withdraw" className="form-control" id="withdraw" placeholder="Withdraw Amount -$" value={withdraw} onChange={e => setWithdraw(e.currentTarget.value)}/> <br/>
-                <button type="submit" className="btn btn-light" onClick={() => makeWithdraw(withdraw)} disabled={disabled}>Withdraw</button>
+                <button type="submit" className="btn btn-dark" onClick={() => makeWithdraw(withdraw)} disabled={disabled}>Withdraw</button>
                 </>
               ):(
                 <>

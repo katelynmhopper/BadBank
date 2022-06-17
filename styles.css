@@ -1,0 +1,36 @@
+body{
+    background-image: url('saving-money-piggybank.png');
+    background-size: cover; 
+    
+}
+
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.callout{
+    font-size: larger;
+    outline: auto;
+    outline-color: grey;
+    text-align: justify;
+}
+
+.table{
+    font-size: xx-large;
+    font: bold;
+    backdrop-filter: blur(10px);;
+}
+
+  
+  /* Style the active class, and buttons on mouse-over */
+  .active  {
+    background-color: blue;
+    color: yellow;
+  }
+
+  .btn btn-light{
+    btn-disabled-color: blue
+}

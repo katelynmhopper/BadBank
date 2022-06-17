@@ -1,28 +1,37 @@
 function CreateAccount(){
     const [show, setShow]           =React.useState(true);
     const [status, setStatus]       =React.useState(''); 
-    const [name, setName]           =React.useState(''); 
-    const [email, setEmail]         =React.useState(''); 
-    const [password, setPassword]   =React.useState(''); 
+    const [name, setName]           =React.useState(); 
+    const [email, setEmail]         =React.useState(); 
+    const [password, setPassword]   =React.useState(); 
+    const [disabled, setDisabled] = React.useState(false);
     const ctx = React.useContext(UserContext); 
-
+    
     function validate(field, label){
         if (!field) {
             setStatus('Error:' + label); 
-            setTimeout(() => setStatus(''),3000); 
             return false;
+        }
+        if (password.length < 8) {
+            setStatus('Password must be at least 8 characters')
+            return false; 
         }
         return true; 
     }
 
     function handleCreate(){
-        console.log(name, email, password); 
+        let info = {name, email, password}
+        console.log(info); 
         if (!validate(name,       'name'))    return; 
         if (!validate(email,      'email'))   return; 
         if (!validate(password,   'password'))  return;
-        ctx.users.push({name,email,password,balance:100});
+        
+        ctx.users[1] = info; //this is only going to make it so it always pushes to the second object and will keep replacing it
         setShow(false);
+        alert("Your account has been created!");
     }
+
+
 
     function clearForm(){
         setName('');
@@ -30,6 +39,17 @@ function CreateAccount(){
         setPassword('');
         setShow(true);
     }
+
+    //React.useEffect(() => {
+       // if ( name !== '') {
+       //   setDisabled(true); 
+        //} 
+        //else {
+        //  setDisabled(false);
+        //}
+    // },   [CreateAccount]);
+      
+
 
     return (
         <Card
@@ -44,7 +64,7 @@ function CreateAccount(){
                     <input type="input" className="form-control" id="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.currentTarget.value)}/><br/>
                     Password<br/>
                     <input type="password" className="form-control" id="password" placeholder="Enter password" value={password} onChange={e => setPassword(e.currentTarget.value)}/><br/>
-                    <button type="submit" className="btn btn-light" onClick={handleCreate}> Create Account</button>
+                    <button type="submit" className="btn btn-light" onClick={handleCreate} disabled={disabled}> Create Account</button>
                     </>
                  ):(
                     <>

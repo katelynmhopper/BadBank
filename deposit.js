@@ -20,14 +20,14 @@ function Deposit(){
         return true;
     }
 
-    const makeDeposit = amount => {
-      if (!validate(amount)) return;
-      setBalance(Number(balance) + Number(amount));
-      setShow(false);
-      setStatus('');
-      ctx.users[0].balance =+ Number(amount)
-    }
-    console.log({balance});
+
+  const makeDeposit = amount => {
+  if (!validate(amount)) return;
+  setBalance(Number(balance) + Number(amount));
+  setShow(false);
+  setStatus('');
+  ctx.users[0].balance += Number(amount);
+  }
   
   function clearForm(){
     setDeposit('');
@@ -51,10 +51,10 @@ function Deposit(){
         status={status}
         body={show ? (  
                 <>
-                <h3>Balance: ${balance}</h3> <br/>
+                <div className="callout">Balance: ${balance.toFixed(2)}</div> <br/>
                 How much do you want to deposit?<br/>
                 <input type="deposit" className="form-control" id="deposit" placeholder="Deposit Amount $" value={deposit} onChange={e => setDeposit(e.currentTarget.value)}/> <br/>
-                <button type="submit" className="btn btn-light" onClick={() => makeDeposit(deposit)} disabled={disabled}>Deposit</button>
+                <button type="submit" className="btn btn-dark" onClick={() => makeDeposit(deposit)} disabled={disabled}>Deposit</button>
                 </>
               ):(
                 <>

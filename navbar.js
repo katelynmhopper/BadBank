@@ -1,6 +1,8 @@
 function NavBar(){
+    
     return(
         <>
+
 <nav className="navbar navbar-expand-lg navbar-light bg-white">
     <a className="navbar-brand" href="#">BadBank</a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aira-label="Toggle navigation" >
@@ -25,7 +27,8 @@ function NavBar(){
          </ul>
        </div>
     </nav>
-    
         </>
+        
     );
+    
 }
