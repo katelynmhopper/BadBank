@@ -26,10 +26,10 @@ function CreateAccount(){
         if (!validate(email,      'email'))   return; 
         if (!validate(password,   'password'))  return;
         
-        ctx.users[1] = info; //this is only going to make it so it always pushes to the second object and will keep replacing it
+        ctx.users.push(info)
         setShow(false);
         alert("Your account has been created!");
-    }
+        }
 
 
 

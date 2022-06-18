@@ -43,7 +43,7 @@
     console.log('>>>', btns);
     
     // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < 6; i++) {
+    for (var i = 0; i < btns.length; i++) {
       btns[i].addEventListener("select", function() {
         var current = document.getElementsByClassName("active");
     
