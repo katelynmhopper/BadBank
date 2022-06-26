@@ -24,13 +24,10 @@ footer{
     backdrop-filter: blur(10px);;
 }
 
-  
-  /* Style the active class, and buttons on mouse-over */
-  .active  {
-    background-color: blue;
-    color: yellow;
-  }
 
-  .btn btn-light{
-    btn-disabled-color: blue
+.nav-link:focus {
+    background: paleturquoise;
+    border: 2px;
+    border-color: black;
+
 }

@@ -40,14 +40,14 @@ function CreateAccount(){
         setShow(true);
     }
 
-    //React.useEffect(() => {
-       // if ( name !== '') {
-       //   setDisabled(true); 
-        //} 
-        //else {
-        //  setDisabled(false);
-        //}
-    // },   [CreateAccount]);
+    React.useEffect(() => {
+        if ( name === undefined || email === undefined || password === undefined ){
+            setDisabled(true);
+        } 
+        else {
+         setDisabled(false);
+        }
+    });
       
 
 

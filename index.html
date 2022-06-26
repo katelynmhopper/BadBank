@@ -34,30 +34,7 @@
     <script src="index.js" defer type="text/babel"></script>
     
     <link rel="stylesheet" href="styles.css">
-    <script>
-    // Get the container element
-    var btnContainer = document.getElementById("root");
-    console.log('>>>>', btnContainer)
-    // Get all buttons with class="btn" inside the container
-    const btns = btnContainer.getElementsByClassName("nav-link");
-    console.log('>>>', btns);
-    
-    // Loop through the buttons and add the active class to the current/clicked button
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("select", function() {
-        var current = document.getElementsByClassName("active");
-    
-        // If there's no active class
-        if (current.length > 0) {
-          current[0].className = current[0].className.replace(" active", "");
-        }
-    
-        // Add the active class to the current/clicked button
-        this.className += " active";
-        console.log("does it run full code?", current)
-      });
-    }
-</script>
+
 </body>
 <footer>
 <br/>
