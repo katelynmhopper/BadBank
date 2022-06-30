@@ -10,6 +10,10 @@ function Withdraw(){
   
   
     const validate = amount => {
+        if (isNaN(amount)) {
+          setStatus('Error: please enter a number');
+          return false; 
+        }
         if (!amount) {
           setStatus('Error: please enter a value');
           return false;
@@ -17,9 +21,6 @@ function Withdraw(){
         if (amount > balance) {
           setStatus('Error: Overdraft');
           return false;
-        }
-        if (!Number(amount)) {
-          setStatus('Error: please enter a value');
         }
         return true;
     }

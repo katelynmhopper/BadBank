@@ -8,14 +8,16 @@ function Deposit(){
   
   
     const validate = amount => {
+        if (isNaN(amount)) {
+          setStatus('Error: please enter a number');
+          return false; 
+        }
         if (!amount) {
           setStatus('Error: please enter a value');
           return false;
         } if (amount <= 0) {
           setStatus('Error: Deposit cannot be zero or a negative number');
           return false;
-        } if (!Number(amount)) {
-          setStatus('Error: please enter a value');
         }
         return true;
     }

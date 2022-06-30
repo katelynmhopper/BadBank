@@ -29,5 +29,10 @@ footer{
     background: paleturquoise;
     border: 2px;
     border-color: black;
+    size: 500%;
 
+}
+.navbar-brand:hover {
+    display: contents;
+    color: blue;
 }
